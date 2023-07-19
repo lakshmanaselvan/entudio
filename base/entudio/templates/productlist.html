@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+    <center><h1>Product List</h1></center><br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Rupees</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for product in product_list %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td><b>{{ product.product_name }}</b></td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.rupees }}</td>
+                    <td>{{ product.total }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      <center><a class="btn btn-primary" href="{% url 'pdf' %}" role="button">PDF</a></center>
+{% endblock %}
